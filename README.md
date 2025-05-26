@@ -1,74 +1,70 @@
-# ⚠️ Importante!!!
-Você pode escolher qualquer um dos desafios para desenvolver. Sinta-se à vontade para começar pelo desafio que mais lhe interessa.
+# Super Trunfo em C - Atributos Aleatórios
 
-# Desafio Super Trunfo - Países - Comparação das Cartas
+Este projeto é uma implementação do jogo **Super Trunfo**, desenvolvido em linguagem C. Nele, o jogador compara **duas cartas de países** com base em **dois atributos numéricos**, seguindo regras específicas para cada um.
 
-Bem-vindo ao desafio "Super Trunfo - Países"! Neste projeto, você desenvolverá um sistema para comparar cartas baseadas em atributos de cidades. O desafio é dividido em três níveis: Novato, Aventureiro e Mestre. Cada nível adiciona novas funcionalidades e complexidades, permitindo um aprendizado progressivo.
-
-## 🏅 Nível Novato
-
-No nível Novato, você começará implementando a lógica básica de comparação entre cartas utilizando estruturas de decisão `if` e `if-else`.
-
-### 🚩 Objetivos:
-- **Cadastro de Cartas:** O sistema permitirá ao usuário cadastrar cartas de cidades, incluindo informações como estado, código da carta, nome da cidade, população, área, PIB e número de pontos turísticos.
-- **Comparação de Cartas:** O sistema comparará os atributos de duas cartas e determinará a vencedora com base em uma propriedade específica (população, área, PIB, etc.), escolhida no código.
-- **Exibição de Resultados:** Após a comparação, o sistema exibirá qual carta venceu com base na regra: maior valor vence, exceto em densidade populacional, onde o menor valor é o vencedor.
-
-### 📥 Entrada de Dados:
-- Os dados das cartas serão inseridos manualmente via terminal.
-- O sistema solicitará interativamente as informações de cada carta.
-
-### 📤 Saída de Dados:
-- Após o cadastro, as propriedades da cidade serão exibidas de forma organizada.
-- O resultado da comparação será mostrado, indicando a carta vencedora.
+Todos os atributos das cartas são **gerados aleatoriamente** a cada execução do jogo, o que garante partidas diferentes sempre.
 
 ---
 
-## 🏅 Nível Aventureiro
+## 🧠 Atributos disponíveis
 
-No nível Aventureiro, você expandirá o sistema para incluir a comparação aninhada e a criação de um menu interativo usando `switch`.
+Cada país possui os seguintes atributos:
 
-### 🆕 Diferença em relação ao Nível Novato:
-- **Menu Interativo:** O usuário poderá escolher diferentes atributos para comparação através de um menu.
-- **Comparação Aninhada:** Implementação de lógica de comparação mais complexa, utilizando estruturas aninhadas para tomar decisões baseadas em múltiplos atributos.
-
-### 🚩 Novas Funcionalidades:
-- **Cadastro de Cartas:** Similar ao nível Novato, com a adição de comparação de múltiplos atributos.
-- **Menu Interativo:** Uso de `switch` para criar um menu que permite ao jogador escolher os atributos a serem comparados.
-- **Exibição de Resultados:** O sistema exibirá o resultado da comparação, indicando qual carta venceu e qual atributo foi utilizado.
-
----
-
-## 🏅 Nível Mestre
-
-No nível Mestre, o desafio se intensifica com a adição de funcionalidades avançadas, como menus dinâmicos e lógica de decisão complexa com operadores ternários.
-
-### 🆕 Diferença em relação ao Nível Aventureiro:
-- **Escolha de Dois Atributos:** O usuário poderá escolher dois atributos para comparação entre as cartas.
-- **Lógica de Decisão Complexa:** Implementação de estruturas de decisão aninhadas e encadeadas, além do uso de operadores ternários para determinar a carta vencedora.
-- **Menus Dinâmicos:** Os menus serão dinâmicos, permitindo uma navegação fluida entre as opções de comparação.
-
-### 🚩 Novas Funcionalidades:
-- **Comparação de Dois Atributos:** O sistema comparará dois atributos simultaneamente para determinar a carta vencedora.
-- **Lógica Avançada:** Uso de operadores ternários e lógica aninhada para lidar com comparações complexas.
-- **Empates:** O sistema será capaz de lidar com empates, exibindo mensagens apropriadas.
-- **Exibição de Resultados:** Exibição dos resultados das comparações de forma clara e interativa.
+| Código | Atributo               | Tipo   | Regra de comparação           |
+|--------|------------------------|--------|-------------------------------|
+| 1      | População              | int    | Maior vence                   |
+| 2      | Área (km²)             | float  | Maior vence                   |
+| 3      | PIB (trilhões)         | float  | Maior vence                   |
+| 4      | Pontos Turísticos      | int    | Maior vence                   |
+| 5      | Densidade Demográfica  | float  | **Menor vence** (regra inversa)
 
 ---
 
-## 📋 Requisitos Funcionais Comuns
-- **Cadastro de Cartas:** O sistema deve permitir o cadastro de cartas com as informações necessárias.
-- **Comparação:** O sistema deve comparar as cartas e determinar a vencedora com base nas regras estabelecidas.
-- **Exibição de Resultados:** Os resultados devem ser exibidos de forma clara, indicando a carta vencedora.
+## 🎮 Como funciona o jogo
 
-## 📌 Requisitos Não Funcionais Comuns
-- **Usabilidade:** A interface do usuário deve ser simples e intuitiva.
-- **Performance:** O sistema deve executar operações sem atrasos perceptíveis.
-- **Manutenibilidade:** O código deve ser bem estruturado e documentado.
-- **Confiabilidade:** O sistema deve ser robusto e capaz de lidar com entradas inválidas de forma adequada.
+1. O programa gera **automaticamente duas cartas** com dados aleatórios para os países "Brasil" e "Alemanha".
+2. O jogador escolhe **dois atributos diferentes** para fazer a comparação.
+3. O jogo compara os dois atributos individualmente:
+   - Atribui um ponto ao país que tiver vantagem em cada atributo.
+4. Soma os valores dos dois atributos de cada país.
+5. Vence quem tiver a **maior soma total**.
+6. Em caso de soma igual, o jogo exibe `"Empate!"`.
 
 ---
 
-Boa sorte no desenvolvimento deste desafio e aproveite para aprender e se divertir enquanto progride pelos níveis!
+## 💻 Exemplo de execução
 
-Equipe de Ensino - MateCheck
+```txt
+===== SUPER TRUNFO FINAL =====
+Escolha o primeiro atributo para comparar:
+1 - População
+2 - Área
+3 - PIB
+4 - Pontos Turísticos
+5 - Densidade Demográfica
+Digite sua opção: 3
+
+Escolha o segundo atributo para comparar (diferente do primeiro):
+1 - População
+2 - Área
+4 - Pontos Turísticos
+5 - Densidade Demográfica
+Digite sua opção: 5
+
+--- COMPARAÇÃO DE CARTAS ---
+País 1: Brasil
+País 2: Alemanha
+
+Atributo 1: PIB
+Brasil: 7.20
+Alemanha: 15.30
+
+Atributo 2: Densidade Demográfica
+Brasil: 120.00
+Alemanha: 300.00
+
+Soma dos atributos:
+Brasil: 127.20
+Alemanha: 315.30
+
+Resultado final: Alemanha venceu a rodada!
